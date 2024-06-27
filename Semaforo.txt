@@ -1,0 +1,80 @@
+#define ledGreen1 26
+#define ledYellow1 25
+#define ledRed1 33
+#define ledGreen2 19
+#define ledYellow2 18
+#define ledRed2 5
+#define dWrt digitalWrite
+int delayG = 5000;
+int delayY = 3000;
+
+void setup() {
+  pinMode(ledGreen1, OUTPUT);
+  pinMode(ledYellow1, OUTPUT);
+  pinMode(ledRed1, OUTPUT);
+  pinMode(ledGreen2, OUTPUT);
+  pinMode(ledYellow2, OUTPUT);
+  pinMode(ledRed2, OUTPUT);
+
+  //delayG + delayY = delay R
+  //  5    +   3    =   8
+  int delayG = 5;
+  int delayY = 3;
+}
+
+void onlyG1(){
+  dWrt(ledGreen1, HIGH);
+  dWrt(ledYellow1, LOW);
+  dWrt(ledRed1, LOW);
+  }
+
+void onlyG2(){
+  dWrt(ledGreen2, HIGH);
+  dWrt(ledYellow2, LOW);
+  dWrt(ledRed2, LOW);
+}
+
+void onlyY1(){
+  dWrt(ledYellow1, HIGH);
+  dWrt(ledGreen1, LOW);
+  dWrt(ledRed1, LOW);
+}
+
+void onlyY2(){
+  dWrt(ledYellow2, HIGH);
+  dWrt(ledGreen2, LOW);
+  dWrt(ledRed2, LOW);
+}
+
+void onlyR1(){
+  dWrt(ledRed1, HIGH);
+  dWrt(ledYellow1, LOW);
+  dWrt(ledGreen1, LOW);
+}
+
+void onlyR2(){
+  dWrt(ledRed2, HIGH);
+  dWrt(ledYellow2, LOW);
+  dWrt(ledGreen2, LOW);
+}
+
+void main() {
+  onlyG1();
+  onlyR2();
+  delay(5000); //tempo verde
+  onlyY1();
+  delay(3000); //tempo amarelo
+  onlyR1();
+  onlyG2();
+  delay(5000);
+  onlyY2();
+  delay(3000);
+}
+
+void detected(){
+  
+}
+
+void loop() {             
+  main();
+}
